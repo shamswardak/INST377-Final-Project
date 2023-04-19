@@ -1,5 +1,34 @@
 header {
-    background-color: antiquewhite;
-    color: black;
+    background-color: #545659;
+    color: white;
     padding: 20px;
 }
+
+footer {
+    background-color: #545659;
+    color: white;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+#content_container {
+    display: flex;
+    width: 100%;
+}
+
+#table_container {
+    background-color: grey;
+    width: 50%;
+    height: 700px;
+}
+
+#chart_container {
+    background-color: skyblue;
+    width: 50%;
+    height: 700px;
+}
+
+
