@@ -1,9 +1,8 @@
 async function mainEvent() {
     const form = document.querySelector("#date_form");
     const tableBody = document.querySelector("#earthquake_table tbody");
-
-    const clearTable = document.getElementById("clear_table");
-    
+  
+  
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -23,10 +22,6 @@ async function mainEvent() {
         })
       })
 
-      clearTable.addEventListener("click", () => {
-        console.log('clicked clear button');
-        tableBody.innerHTML = "";
-      });
   }
     
 document.addEventListener("DOMContentLoaded", async () => {
