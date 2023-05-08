@@ -7,8 +7,11 @@ async function mainEvent() {
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const startDate = document.querySelector("#start_date").value;
-        const endDate = document.querySelector("#end_date").value;
+        const month = localStorage.getItem('selectedMonth');
+        const year = localStorage.getItem('selectedYear');
+
+        const startDate = new Date(year, month-1, 1).toLocaleDateString('en-US', {month: '2-digit', day: '2-digit', year: 'numeric'});
+        const endDate = new Date(year, month, 0).toLocaleDateString('en-US', {month: '2-digit', day: '2-digit', year: 'numeric'});
 
         fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startDate}&endtime=${endDate}`) //An asynchronous data request to my API
         .then((response) => response.json())
