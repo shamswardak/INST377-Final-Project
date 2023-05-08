@@ -1,13 +1,14 @@
 async function mainEvent() {
     const form = document.querySelector("#date_form");
     const tableBody = document.querySelector("#earthquake_table tbody");
+    const refreshTableData = document.getElementById("refresh")
   
   
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        const month = localStorage.getItem('selectedMonth');
+        const month = localStorage.getItem('selectedMonth'); //load input data from local storage
         const year = localStorage.getItem('selectedYear');
 
         const startDate = new Date(year, month-1, 1).toLocaleDateString('en-US', {month: '2-digit', day: '2-digit', year: 'numeric'});
@@ -24,6 +25,11 @@ async function mainEvent() {
           })
         })
       })
+
+      refreshTableData.addEventListener("click", () => { //form control to really refresh the page.
+        localStorage.clear()
+        window.location.href = "index.html";
+      });
 
   }
     
