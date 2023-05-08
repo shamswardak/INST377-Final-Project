@@ -3,56 +3,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Earthquake Tracker Home</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Earthquake Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-        <div class="month_year_inputs">
-            <form id="date_form">
-              <label for="month-selection">Month</label>
-      
-              <select id="month-selection" name="month" type="month">
-                <option value="">Select month</option>
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-              </select>
-      
-              <label for="year-selection">Year</label>
-      
-              <select id="year-selection" name="year">
-                <option value="">Select year</option>
-              </select>
-      
-              <button type="submit" id="go-button">Go</button>
-    
-            </form>
-          </div>
-      
-      <h1>Earthquake Tracker</h1>
-    </header>
-    <script>
+    <header><h1>Earthquake Tracker</h1></header>
+    <div class="input_container">
+      <form id="date_form">
 
-    let select = document.getElementById("year-selection");
-    let currentYear = new Date().getFullYear();
-    for (let i = 1950; i <= currentYear; i++) {
-    let option = document.createElement("option");
-    option.value = i;
-    option.text = i;
-    select.appendChild(option);
-    }
+        <button type="submit">Load</button>
 
-    </script>
-<footer>Shams Wardak</footer>
+        <button id="sort_by_magnitude">Sort by Magnitude</button>
+
+        <button id="reset_filters">Clear Filters</button>
+
+        <button id="refresh">Choose New Date</button>
+
+      </form>
+    </div>
+    <div id="content_container">
+      
+      <div id="table_container">
+
+        <table id="earthquake_table">
+          <thead>
+            <tr>
+              <th>Day/Time</th>
+              <th>Magnitude</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+
+      </div>
+      <div id="map_container">
+        <div id="map"></div>
+      </div>
+
+    </div>
+    <footer>Shams Wardak</footer>
+    <script src="script.js"></script>
   </body>
 </html>
