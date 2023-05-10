@@ -63,15 +63,18 @@
     }
 
     document.getElementById("date_form").addEventListener("submit", (event) => {
-        localStorage.clear()
-        console.log(localStorage)
+        localStorage.clear();
         event.preventDefault();
         const month = document.getElementById("month-selection").value;
         const year = document.getElementById("year-selection").value;
-        localStorage.setItem("selectedMonth", month);
-        localStorage.setItem("selectedYear", year);
-        console.log(localStorage)
-        window.location.href = "first.html";
+
+        if (month && year) {
+          localStorage.setItem("selectedMonth", month);
+          localStorage.setItem("selectedYear", year);
+          window.location.href = "first.html";
+        } else {
+          alert("Please select a month and year.");
+        }
       });
 
     </script>
