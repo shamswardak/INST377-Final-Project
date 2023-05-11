@@ -1,46 +1,45 @@
-html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    height: 100%;
-    background-color: antiquewhite;
-  }
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: antiquewhite;
+}
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    justify-content: space-between;
-    display: flex;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  justify-content: space-between;
+  display: flex;
 }
 
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 main {
-    display: flex;
-    width: 100%;
-  }
-  
-  #date_form {
-    text-align: left;
-    height: 40px;
-    
+  display: flex;
+  width: 100%;
 }
-  
+
+#date_form {
+  text-align: left;
+  height: 40px;
+}
+
 #input_container label {
   margin-right: 10px;
 }
@@ -55,14 +54,14 @@ main {
   height: 750px;
   background-color: #f2f2f2;
   overflow: auto;
-  border:solid;
+  border: solid;
 }
 
 #map_container {
   width: 50%;
   height: 750px;
   background-color: #e6e6e6;
-  border:solid;
+  border: solid;
 }
 
 table {
@@ -82,7 +81,8 @@ table {
   height: 50%;
 }
 
-#month-selection, #year-selection {
+#month-selection,
+#year-selection {
   font-size: 1.0em;
   padding: 0.5em;
   margin: 0.5em;
@@ -103,28 +103,19 @@ header h2 {
 }
 
 #map_title {
-  position:fixed; right:250px; top:45px;
+  position: fixed;
+  right: 250px;
+  top: 45px;
+  display: flex;
   justify-content: center;
-  
 }
 
-#refresh {
-  width: 10em;  height: 2em;
-}
-
-#sort_by_magnitude {
-  width: 10em;  height: 2em;
-
-}
-
-#reset {
-  width: 10em;  height: 2em;
-
-}
-
+#refresh,
+#sort_by_magnitude,
+#reset,
 #load {
-  width: 10em;  height: 2em;
-
+  width: 10em;
+  height: 2em;
 }
 
 #description_box {
@@ -136,6 +127,6 @@ header h2 {
 }
 
 #description_box img {
-  height: 600px;
-  width: 700px;
+  max-height: 600px;
+  max-width: 100%;
 }
