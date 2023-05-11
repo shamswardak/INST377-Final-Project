@@ -1,34 +1,141 @@
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: antiquewhite;
+  }
+
 header {
-    background-color: #545659;
-    color: white;
-    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    justify-content: space-between;
+    display: flex;
 }
 
 footer {
-    background-color: #545659;
-    color: white;
-    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
     position: fixed;
-    width: 100%;
     left: 0;
     bottom: 0;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    width: 100%;
+  }
+  
+  #date_form {
+    text-align: left;
+    height: 40px;
+    
+}
+  
+#input_container label {
+  margin-right: 10px;
 }
 
 #content_container {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 #table_container {
-    background-color: grey;
-    width: 50%;
-    height: 700px;
+  width: 50%;
+  height: 750px;
+  background-color: #f2f2f2;
+  overflow: auto;
+  border:solid;
 }
 
-#chart_container {
-    background-color: skyblue;
-    width: 50%;
-    height: 700px;
+#map_container {
+  width: 50%;
+  height: 750px;
+  background-color: #e6e6e6;
+  border:solid;
 }
 
+table {
+  width: 100%;
+}
 
+#map {
+  width: 100%;
+  height: 750px;
+}
+
+.month_year_inputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  height: 50%;
+}
+
+#month-selection, #year-selection {
+  font-size: 1.0em;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+
+.header-link {
+  color: red;
+  text-decoration: none;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header h2 {
+  margin: 0;
+  text-align: right;
+}
+
+#map_title {
+  position:fixed; right:250px; top:45px;
+  justify-content: center;
+  
+}
+
+#refresh {
+  width: 10em;  height: 2em;
+}
+
+#sort_by_magnitude {
+  width: 10em;  height: 2em;
+
+}
+
+#reset {
+  width: 10em;  height: 2em;
+
+}
+
+#load {
+  width: 10em;  height: 2em;
+
+}
+
+#description_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#description_box img {
+  height: 600px;
+  width: 700px;
+}
