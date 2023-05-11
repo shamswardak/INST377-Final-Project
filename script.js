@@ -1,7 +1,15 @@
 async function mainEvent() {
     const form = document.querySelector("#date_form");
     const tableBody = document.querySelector("#earthquake_table tbody");
-    const refreshTableData = document.getElementById("refresh")
+    const refreshTableData = document.getElementById("refresh");
+    const reset = document.getElementById("reset");
+    const sortByMagnitude = document.getElementById("sort_by_magnitude");
+
+    var map = L.map("map").setView([1, 1], 2);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "Map data &copy; OpenStreetMap contributors",
+      maxZoom: 18,
+    }).addTo(map);
   
   
 
