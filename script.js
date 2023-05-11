@@ -83,6 +83,11 @@ async function mainEvent() {
         localStorage.clear();
         window.location.href = "index.html";
       });
+
+      reset.addEventListener("click", (event) => {
+        event.preventDefault();
+        tableBody.innerHTML = "";
+      });
     
     }
     
