@@ -4,17 +4,18 @@ async function mainEvent() {
     const refreshTableData = document.getElementById("refresh");
     const reset = document.getElementById("reset");
     const sortByMagnitude = document.getElementById("sort_by_magnitude");
+    const top10Quakes = [];
 
     var map = L.map("map").setView([1, 1], 2);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       attribution: "Map data &copy; OpenStreetMap contributors",
       maxZoom: 18,
     }).addTo(map);
-  
-  
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
+
+        tableBody.innerHTML = "";
 
         const month = localStorage.getItem('selectedMonth'); //load input data from local storage
         const year = localStorage.getItem('selectedYear');
@@ -25,23 +26,37 @@ async function mainEvent() {
         fetch(`https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=${startDate}&endtime=${endDate}`) //An asynchronous data request to my API
         .then((response) => response.json())
         .then((data) => {
-          data.features.forEach((earthquake) => { // A processing request that uses array methods (forEach array method that iterates over each feature inside of an earthquake array)
+          data.features.forEach((earthquake) => {
             const { mag, place, time } = earthquake.properties;
+            const { coordinates } = earthquake.geometry;
             const row = document.createElement("tr");
-            row.innerHTML = `<td>${time}</td><td>${mag}</td><td>${place}</td>`;
+            row.innerHTML = `<td>${new Date(time)}</td><td>${mag}</td><td>${place}</td>`;
             tableBody.appendChild(row);
-          })
-        })
-      })
+            top10Quakes.push({mag,place,coordinates,});
+          });
+          top10Quakes.sort((quake1, quake2) => quake2.mag - quake1.mag);
 
-      refreshTableData.addEventListener("click", () => { //form control to really refresh the page.
-        localStorage.clear()
+          top10Quakes.slice(0, 10).forEach((quake) => {
+          const { coordinates, mag, place, time } = quake;
+          const [longitude, latitude] = coordinates;
+          createMarker(latitude, longitude, mag, place, time);
+          });
+        });
+      });
+      
+      function createMarker(latitude, longitude, mag, place, time) {
+      const marker = L.marker([latitude, longitude]).addTo(map);
+      marker.bindPopup(`<strong>Magnitude:</strong> ${mag}<br><strong>Place:</strong> ${place}<br><strong>Time:</strong> ${new Date(time)}`);
+      }
+      
+      refreshTableData.addEventListener("click", (event) => {
+        event.preventDefault();
+        localStorage.clear();
         window.location.href = "index.html";
       });
-
-  }
     
-document.addEventListener("DOMContentLoaded", async () => {
-    await mainEvent();
-})
-      
+    }
+    
+    document.addEventListener("DOMContentLoaded", async () => {
+      await mainEvent();
+    });
