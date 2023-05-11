@@ -48,6 +48,35 @@ async function mainEvent() {
       const marker = L.marker([latitude, longitude]).addTo(map);
       marker.bindPopup(`<strong>Magnitude:</strong> ${mag}<br><strong>Place:</strong> ${place}<br><strong>Time:</strong> ${new Date(time)}`);
       }
+
+      function sortTableByMagnitude() {
+      const rows = Array.from(tableBody.querySelectorAll("tr"));
+
+      rows.sort((row1, row2) => {
+      const magnitude1 = parseFloat(row1.querySelector("td:nth-child(2)").textContent);
+      const magnitude2 = parseFloat(row2.querySelector("td:nth-child(2)").textContent);
+
+      if (isNaN(magnitude1)) {
+        return 1; // Treat null or non-numeric value as lower magnitude
+      }
+
+      if (isNaN(magnitude2)) {
+        return -1; // Treat null or non-numeric value as lower magnitude
+      }
+
+      return magnitude2 - magnitude1; // Sort in descending order
+    });
+
+    rows.forEach((row) => {
+      tableBody.appendChild(row);
+    });
+  }
+
+      sortByMagnitude.addEventListener("click", (event) => {
+        event.preventDefault();
+        sortTableByMagnitude();
+      });
+
       
       refreshTableData.addEventListener("click", (event) => {
         event.preventDefault();
