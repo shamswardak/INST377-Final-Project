@@ -3,8 +3,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Earthquake Tracker</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Earthquake Tracker Home</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
 
   <body>
@@ -13,74 +13,85 @@
       <h2><a href="about.html" class="header-link">About</a></h2>
     </header>
 
-        <div class="month_year_inputs">
-            <form id="date_form">
-              <label for="month-selection">Month</label>
-      
-              <select id="month-selection" name="month" type="month">
-                <option value="">Select month</option>
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-              </select>
-      
-              <label for="year-selection">Year</label>
-      
-              <select id="year-selection" name="year">
-                <option value="">Select year</option>
-              </select>
-      
-              <button type="submit" id="go-button">Go</button>
-    
-            </form>
-            <div id="description_box">
-              <h2>What Causes Earthquakes?</h2>
-              <p>Earthquakes are­ sudden and powerful rele­ases of energy from the­ Earth's crust caused by the moveme­nt and interaction of tectonic plates that make­ up its surface.
-                 There are­ three primary types of plate­ boundaries - convergent, dive­rgent, and transform - where the­se plates can collide, se­parate or slide past each othe­r resulting in built-up stress.
-                  A rupture along a fault line­ occurs when this stress surpasses the­ strength of rocks culminating into earthquakes.
-                 The­ intensity scales assess shaking at a location while­ magnitude scales measure­ energy rele­ased during an earthquake.
-                  While­ plate tectonics bege­ts seismic activity, human-induced activities like­ drilling for oil, mining or reservoir impoundment may also contribute­ to it. </p>
-      
-                <img src="what-happens-earthquake-diagram_.original.png" alt="diagram">
-            </div>
-          </div>
-    
+    <div class="month_year_inputs">
+      <form id="date_form">
+        <label for="month-selection">Month</label>
+
+        <select id="month-selection" name="month" type="month">
+          <option value="">Select month</option>
+          <option value="01">January</option>
+          <option value="02">February</option>
+          <option value="03">March</option>
+          <option value="04">April</option>
+          <option value="05">May</option>
+          <option value="06">June</option>
+          <option value="07">July</option>
+          <option value="08">August</option>
+          <option value="09">September</option>
+          <option value="10">October</option>
+          <option value="11">November</option>
+          <option value="12">December</option>
+        </select>
+
+        <label for="year-selection">Year</label>
+
+        <select id="year-selection" name="year">
+          <option value="">Select year</option>
+        </select>
+
+        <button type="submit" id="go-button">Go</button>
+      </form>
+      <div id="description_box">
+        <h2>What Causes Earthquakes?</h2>
+        <p>
+          Earthquakes are­ sudden and powerful rele­ases of energy from the­
+          Earth's crust caused by the moveme­nt and interaction of tectonic
+          plates that make­ up its surface. There are­ three primary types of
+          plate­ boundaries - convergent, dive­rgent, and transform - where
+          the­se plates can collide, se­parate or slide past each othe­r
+          resulting in built-up stress. A rupture along a fault line­ occurs
+          when this stress surpasses the­ strength of rocks culminating into
+          earthquakes. The­ intensity scales assess shaking at a location while­
+          magnitude scales measure­ energy rele­ased during an earthquake.
+          While­ plate tectonics bege­ts seismic activity, human-induced
+          activities like­ drilling for oil, mining or reservoir impoundment may
+          also contribute­ to it.
+        </p>
+
+        <img
+          src="what-happens-earthquake-diagram_.original.png"
+          alt="diagram"
+        />
+      </div>
+    </div>
+
     <script>
+      let select = document.getElementById("year-selection");
+      let currentYear = new Date().getFullYear();
+      for (let i = 1950; i <= currentYear; i++) {
+        let option = document.createElement("option");
+        option.value = i;
+        option.text = i;
+        select.appendChild(option);
+      }
 
-    let select = document.getElementById("year-selection");
-    let currentYear = new Date().getFullYear();
-    for (let i = 1950; i <= currentYear; i++) {
-    let option = document.createElement("option");
-    option.value = i;
-    option.text = i;
-    select.appendChild(option);
-    }
+      document
+        .getElementById("date_form")
+        .addEventListener("submit", (event) => {
+          localStorage.clear();
+          event.preventDefault();
+          const month = document.getElementById("month-selection").value;
+          const year = document.getElementById("year-selection").value;
 
-    document.getElementById("date_form").addEventListener("submit", (event) => {
-        localStorage.clear();
-        event.preventDefault();
-        const month = document.getElementById("month-selection").value;
-        const year = document.getElementById("year-selection").value;
-
-        if (month && year) {
-          localStorage.setItem("selectedMonth", month);
-          localStorage.setItem("selectedYear", year);
-          window.location.href = "first.html";
-        } else {
-          alert("Please select a month and year.");
-        }
-      });
-
+          if (month && year) {
+            localStorage.setItem("selectedMonth", month);
+            localStorage.setItem("selectedYear", year);
+            window.location.href = "first.html";
+          } else {
+            alert("Please select a month and year.");
+          }
+        });
     </script>
-<footer>Shams Wardak</footer>
+    <footer>Shams Wardak</footer>
   </body>
 </html>

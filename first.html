@@ -4,12 +4,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Earthquake Tracker</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
-    crossorigin=""/>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+      integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+      crossorigin=""
+    />
 
-    <link rel="stylesheet" href="styles.css"/>
-    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+      integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+      crossorigin=""
+    ></script>
   </head>
   <body>
     <header>
@@ -18,7 +25,6 @@
     </header>
     <div class="input_container">
       <form id="date_form">
-
         <button id="load" type="submit">Load</button>
 
         <button id="sort_by_magnitude">Sort by High Mag.</button>
@@ -26,14 +32,11 @@
         <button id="reset">Clear/Reset</button>
 
         <button id="refresh">Choose New Date</button>
-
       </form>
       <div id="map_title"><h2>Strongest Earthquakes of The Month</h2></div>
     </div>
     <div id="content_container">
-      
       <div id="table_container">
-
         <table id="earthquake_table">
           <thead>
             <tr>
@@ -42,15 +45,12 @@
               <th>Location</th>
             </tr>
           </thead>
-          <tbody>
-          </tbody>
+          <tbody></tbody>
         </table>
-
       </div>
       <div id="map_container">
         <div id="map"></div>
       </div>
-
     </div>
     <footer>Shams Wardak</footer>
     <script src="script.js"></script>
